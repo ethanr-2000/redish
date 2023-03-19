@@ -14,22 +14,28 @@ const sanitize = (s: string) => {
 
 const DEBUG = (s: string) => {
   if (logLevel <= LEVELS.DEBUG) {
-    console.debug(colours.FgGreen, sanitize(s))
+    console.debug(colours.FgGreen, sanitize(s), colours.Reset)
   }
 }
 
 const INFO = (s: string) => {
-  if (logLevel <= LEVELS.INFO) { console.info(colours.FgBlue, sanitize(s)) }
+  if (logLevel <= LEVELS.INFO) { console.info(colours.FgBlue, sanitize(s), colours.Reset) }
 }
 
 const ERROR = (s: string) => {
-  if (logLevel <= LEVELS.ERROR) { console.error(colours.FgRed, sanitize(s)) }
+  if (logLevel <= LEVELS.ERROR) { console.error(colours.FgRed, sanitize(s), colours.Reset) }
 }
+
+const ALWAYS = (s: string) => {
+  console.log(colours.FgMagenta, sanitize(s), colours.Reset)
+}
+
 
 export default {
   LEVELS,
   setLogLevel,
   DEBUG,
   INFO,
-  ERROR
+  ERROR,
+  ALWAYS
 }

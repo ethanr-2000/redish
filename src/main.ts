@@ -52,5 +52,5 @@ const server = net.createServer((connection) => {
   })
 });
 
-log.INFO(`Redish has started...`)
+log.ALWAYS(`Redish has started...`)
 server.listen(6379, "127.0.0.1");
